@@ -1,11 +1,12 @@
 class Customer {
-    _assignRandomImage(){
+    constructor(options) {
+        this.mood = 'Neutral';
+        // this.look = options.look;
+    }
 
+    _assignRandomImage(){
     }
-    _draw(){
-        console.log("customer is drawn");
-    }
-    _changeMood(){
-        
+
+    _changeMood(){        
     }
 }

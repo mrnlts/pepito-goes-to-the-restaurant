@@ -1,34 +1,26 @@
 class Table {
-    constructor() {
+    constructor(assignedCostumer) {
         this.number = 0;
-        this.status = ['free'];
-        this.btn = [];
-    }
-    _draw(){
-        console.log("table is drawn");
+        this.status = 'free';
+        this.assignedCostumer = assignedCostumer;
     }
 
     _changeTableStatus(){
-        if (this.status[0] == 'free') {
-            this._assignCustomerToTable();
-            this.status.pop();
-            this.status.push('countdown');
-        } else if (this.status[0] == 'countdown') {
-            setTimeout(this._collect(), 10000);
-            this.status.pop();
-            this.status.push('collect');
-        } else if (this.status[0] == 'collect') {
-            this.status.pop();
-            this.status.push('free');
+        switch (this.status) {
+            case 'free':
+                game._assignCustomerToTable(this);
+                this.status === 'countdown';
+                break;
+            case 'countdown':
+                setTimeout(this._collect(), 10000);
+                this.status === 'collect';
+                console.log(this.status);
+                break;
+            case 'collect':
+                this.status === 'free';
+                console.log(this.status);
+                break;
         }
-    }
-
-    _assignCustomerToTable() {
-        console.log(this.status[0]);
-        let customer = new Customer();
-        this._changeTableStatus();
-        console.log(this.status[0]);
-        setTimeout(_collect(this), 100000);
     }
 
     _collect() {
