@@ -6,12 +6,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Restaurant Madness</title>
     <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="css/game.css">
+    <link rel="stylesheet" href="css/styles.css">
 </head>
-<body>
+<body  style="background-color: grey;">
     <div>
+        <div id="terrace">
+            <button style="font-size: large"; id="table0">0</button>
+            <button style="font-size: large"; id="table1">1</button>
+            <button style="font-size: large"; id="table2">2</button>
+            <button style="font-size: large"; id="table3">3</button>
+        </div>
+        
+        
+        <h1>QUEUE</h1>
+        <ul style="font-size: small;" id="queue">
+            <li id="spot0">Spot 0</li>
+            <li id="spot1">Spot 1</li>
+            <li id="spot2">Spot 2</li>
+            <li id="spot3">Spot 3</li>
+            <li id="spot4">Spot 4</li>
+            <li id="spot5">Spot 5</li>
+            <li id="spot6">Spot 6</li>
+            <li id="spot7">Spot 7</li>
+        </ul>
+
+        <button style="font-size: large;"; id="startBtn">START!</button>
     </div>
+    <script src="js/data.js"></script>
+    <script src="js/customer.js"></script>
+    <script src="js/spots.js"></script>
+    <script src="js/table.js"></script>
     <script src="js/game.js"></script>
     <script src="js/main.js"></script>
 </body>
