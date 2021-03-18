@@ -2,6 +2,10 @@ class Table {
     constructor() {
         this.number = 0;
         this.status = ['free'];
+        this.btn = [];
+    }
+    _draw(){
+        console.log("table is drawn");
     }
 
     _changeTableStatus(){

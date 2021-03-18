@@ -6,27 +6,37 @@ document.addEventListener('DOMContentLoaded', () => {
     const gameTables = [];
     const gameQueue = [];
     const startBtn = document.getElementById("startBtn");
-    startBtn.addEventListener("click", () => game.start());
+    
 
     function _generateTables() {
         game.terrace.forEach((table)=> {
+            console.log('terrace item created');
             const tableHtml = document.getElementById(table); 
-            gameTables.push(tableHtml);
+            table.btn.push(tableHtml);
         });
     }
 
     function _generateQueue() {
         game.queue.forEach((spot) => {
+            console.log('queue item created');
             const spotHtml = document.getElementById(spot);
             gameQueue.push(spotHtml);
         });
     }
     
-    _generateTables();
-    _generateQueue();
-
-
-
+    function _drawGame() {
+        game.terrace.forEach((table)=>table._draw());
+        game.queue.forEach((spot)=>spot._draw());
+        game.customers.forEach((customer)=>customer._draw());
+        _generateTables();
+        _generateQueue();
+    }
+    
+    startBtn.addEventListener("click", () => {
+        _drawGame();
+        game.start();
+    });
+    
     // const table0Btn = document.getElementById("table0");
     // const table1Btn = document.getElementById("table1");
     // const table2Btn = document.getElementById("table2");
