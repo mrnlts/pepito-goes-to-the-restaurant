@@ -8,30 +8,36 @@
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/styles.css">
 </head>
-<body  style="background-color: grey;">
+<body>
     <div>
-        <div id="terrace">
-            <button style="font-size: large"; id="table0" class ="hide">0</button>
-            <button style="font-size: large"; id="table1" class ="hide">1</button>
-            <button style="font-size: large"; id="table2" class ="hide">2</button>
-            <button style="font-size: large"; id="table3" class ="hide">3</button>
+        <div id="splashScreen" class="show"> <!--SPLASH SCREEN-->
+            <img src="img/Splash-screen.png" alt="initial screen">
+            <button id="startBtn">START</button>
+            <button id="howToBtn">HOW TO PLAY</button>
         </div>
         
-        <div id="timer"></div>
+        <div id="gameScreen" class="hide">
+            <div id="terrace">
+                <button style="font-size: large"; id="table0">0</button>
+                <button style="font-size: large"; id="table1">1</button>
+                <button style="font-size: large"; id="table2">2</button>
+                <button style="font-size: large"; id="table3">3</button>
+            </div>    
+            <div id="timer">05:00</div>
+            <h1 id="title">QUEUE</h1>
+            <ul id="queue">
+                <li id="spot0">Spot 0</li>
+                <li id="spot1">Spot 1</li>
+                <li id="spot2">Spot 2</li>
+                <li id="spot3">Spot 3</li>
+                <li id="spot4">Spot 4</li>
+                <li id="spot5">Spot 5</li>
+                <li id="spot6">Spot 6</li>
+                <li id="spot7">Spot 7</li>
+            </ul>
+        </div>
 
-        <h1 id="title" class ="hide">QUEUE</h1>
-        <ul style="font-size: small;" id="queue">
-            <li id="spot0" class ="hide">Spot 0</li>
-            <li id="spot1" class ="hide">Spot 1</li>
-            <li id="spot2" class ="hide">Spot 2</li>
-            <li id="spot3" class ="hide">Spot 3</li>
-            <li id="spot4" class ="hide">Spot 4</li>
-            <li id="spot5" class ="hide">Spot 5</li>
-            <li id="spot6" class ="hide">Spot 6</li>
-            <li id="spot7" class ="hide">Spot 7</li>
-        </ul>
-
-        <button style="font-size: large;"; id="startBtn">START!</button>
+        <div id="winScreen"></div>
     </div>
     
     <script src="js/customer.js"></script>

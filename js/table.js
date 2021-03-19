@@ -8,7 +8,7 @@ class Table {
     _changeTableStatus(){
         switch (this.status) {
             case 'free':
-                game._assignCustomerToTable(this);
+                _assignCustomerToTable(this);
                 this.status === 'countdown';
                 break;
             case 'countdown':
