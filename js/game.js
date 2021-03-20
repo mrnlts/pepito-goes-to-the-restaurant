@@ -7,7 +7,7 @@ class Game {
 
     _assignCustomerToTable(i) {
         this.terrace[i]._changeTableStatus();
-        setTimeout(_collect(), 100000);
+        // setTimeout(_collect(), 100000);
         this.terrace[i].assignedCostumer = this.head;
     }
 

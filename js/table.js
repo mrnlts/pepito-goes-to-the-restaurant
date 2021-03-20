@@ -1,7 +1,8 @@
 class Table {
-    constructor() {
+    constructor(btn) {
         this.number = 0;
         this.status = 'free';
+        this.btn = btn;
         this.assignedCostumer = undefined;
     }
 
@@ -11,13 +12,11 @@ class Table {
                 this.status = 'countdown';
                 break;
             case 'countdown':
-                setTimeout(this._collect(), 10000);
+                // setTimeout(this._collect(), 10000);
                 this.status = 'collect';
-                console.log(this.status);
                 break;
             case 'collect':
                 this.status = 'free';
-                console.log(this.status);
                 break;
         }
     }

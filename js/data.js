@@ -24,18 +24,18 @@ const table2Btn = document.getElementById("table2");
 const table3Btn = document.getElementById("table3");
 const tablesHtmlArr = [table0Btn, table1Btn, table2Btn, table3Btn];
 /*Instances*/
-const table0 = new Table();
-const table1 = new Table();
-const table2 = new Table();
-const table3 = new Table();
+const table0 = new Table(table0Btn);
+const table1 = new Table(table1Btn);
+const table2 = new Table(table2Btn);
+const table3 = new Table(table3Btn);
 /*Array*/
-const terrace = [this.table0, this.table1, this.table2, this.table3];
+const terrace = [table0, table1, table2, table3];
 
 /*Event Listeners*/
-table0Btn.addEventListener("click", () => {console.log('table0');console.log('click'); console.log(table1.status); _changeTableStatus();});
-table1Btn.addEventListener("click", () => {console.log('table1');console.log('click'); console.log(table2.status);});
-table2Btn.addEventListener("click", () => {console.log('table2');console.log('click'); console.log(table3.status);});
-table3Btn.addEventListener("click", () => {console.log('table3');console.log('click'); console.log(table3.status);});
+table0.btn.addEventListener("click", () => {console.log('table0 = ' + table0.status); table0._changeTableStatus();});
+table1.btn.addEventListener("click", () => {console.log('table1 = ' + table1.status); table1._changeTableStatus();});
+table2.btn.addEventListener("click", () => {console.log('table2 = ' + table2.status); table2._changeTableStatus();});
+table3.btn.addEventListener("click", () => {console.log('table3 = ' + table3.status); table3._changeTableStatus();});
 
 //Queue--------------------------------------------------------------------------------------------------------------------------------------------------------------------
 /*Dom*/
