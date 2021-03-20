@@ -2,18 +2,24 @@ class Game {
     constructor() {
         this.terrace = terrace; // Array de tables
         this.queue = queue; // Array of customers
-        this.head = queue[0];
     }
 
     _assignCustomerToTable(i) {
-        this.terrace[i].status = "countdown";
-        setTimeout((this.terrace[i]._changeTableStatus()), 100000);
-        this.terrace[i].assignedCostumer = 'I’m the first customer';
-        this.terrace[i].btn.disabled = true;
-        setTimeout(()=> {
-            this.terrace[i].btn.disabled = false; 
-            this.terrace[i].status = "collect"; 
-            console.log(this.terrace[i].status + ` table ${[i]}`);}, 5000);
+        if (this.terrace[i].status === "free"){
+            this.terrace[i].status = "countdown";
+            this.terrace[i].btn.classList.remove("green"); this.terrace[i].btn.classList.add("yellow");
+            this.terrace[i].assignedCostumer = this.queue[0];
+            this.terrace[i].btn.disabled = true;
+            setTimeout(()=> this.terrace[i].status = "countdown", 100000);
+            setTimeout(()=> {
+                this.terrace[i].btn.disabled = false; 
+                this.terrace[i].btn.classList.remove("yellow"); this.terrace[i].btn.classList.add("red");
+                this.terrace[i].status = "collect";
+            });
+        } else if (this.terrace[i].status === "collect"){
+            this.terrace[i].status = "free";
+            this.terrace[i].btn.classList.remove("red");this.terrace[i].btn.classList.add("green");
+        }
     }
 
     _buildQueue() {
@@ -25,16 +31,18 @@ class Game {
                 const currentSpot = spotsHtmlArr[spotsCounter];
                 const currentCustom = people[Math.round(Math.random()*4)];
                 currentSpot.innerHTML = currentCustom.look;
+                queue.push(currentCustom);
+                console.log(queue);
             } else {
                 customsCounter = 0;
             }
-            console.log("new costumer" + spotsCounter);
             if (spotsCounter <= 7) {
                 spotsCounter++;
             } else {
-                spotsCounter = 0;
+                return;
             }
             }, 1500);
+        
         // setTimeout(clearInterval(queueInterval), 300000);
     }
 
@@ -44,6 +52,7 @@ class Game {
 
     start(){
         console.log("The game has started");
+        _drawGame();
         this._gameCountdown();
         this._buildQueue();
         if (this._gameCountdown() === 0) {

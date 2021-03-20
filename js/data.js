@@ -16,6 +16,7 @@ function _drawGame() {
 function _drawGameScreen() {gameScreen.classList.remove("hide"); gameScreen.classList.add("show");}
 const gameScreen = document.getElementById("gameScreen");
 
+
 //Tables--------------------------------------------------------------------------------------------------------------------------------------------------------------------
 /*Dom*/
 const table0Btn = document.getElementById("table0");

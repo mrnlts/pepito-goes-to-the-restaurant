@@ -1,19 +1,40 @@
 *{
     text-align: center;
+    font-family: sans-serif;
+}
+
+body {
+    margin: 20px;
+    width: 500px;
+    height: 500px;
+    border: 1px solid black;
+}
+
+#splashScreen {
+    overflow: hidden;
 }
 
 #splashScreen > img{
-    width: 500px;
+    position: relative;
+    top: 50px;
+    left: -50px;
+    height: 350px;
+}
+
+#splashScreen > button {
+    height: 70px;
+    width: 150px;
+    margin-top: 65px;
 }
 
 .green {
-    background-color: green;
+    background-color: lightgreen;
 }
 .yellow {
-    background-color: yellow;
+    background-color: lightyellow;
 }
 .red {
-    background-color: red;
+    background-color: lightcoral;
 }
 
 .show {
@@ -21,4 +42,32 @@
 }
 .hide{
     display: none;
+}
+
+#terrace > button {
+    width: 70px;
+    height: 70px;
+    margin: 20px 20px 0;
+}
+
+#title {
+    font-size: xx-large;
+}
+
+#gameScreen {
+    margin: 10px;  
+}
+
+#queue {
+    margin-top: 30px;
+    padding-top: 20px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    background-color: lightgray;
+    height: 180px;
+}
+#queue > div {
+    width: 70px;
+    margin-right: 30px;
 }
