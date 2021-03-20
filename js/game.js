@@ -1,6 +1,6 @@
 class Game {
     constructor() {
-        this.terrace = terrace; // Array de tables
+        this.terrace = terrace; // Array of tables
         this.queue = queue; // Array of customers
     }
 
@@ -11,10 +11,8 @@ class Game {
                 this.terrace[i].btn.disabled = false; 
                 this.terrace[i].btn.classList.remove("red");this.terrace[i].btn.classList.add("green");        
                 score.innerHTML = parseInt(score.innerHTML)+1;
-                console.log("This is free");
                 break;
             case 'countdown':
-                console.log("This is countdown");
                 this.terrace[i].btn.classList.remove("green"); this.terrace[i].btn.classList.add("yellow");
                 this.terrace[i].btn.disabled = true;
                 setTimeout(()=> {
@@ -24,7 +22,6 @@ class Game {
                 }, 3000);
                 break;
             case 'collect':
-                console.log("This is collect");
                 this.terrace[i].btn.disabled = false; 
                 this.terrace[i].btn.classList.remove("yellow"); this.terrace[i].btn.classList.add("red");
                 break;
@@ -32,7 +29,6 @@ class Game {
     }
 
     _buildQueue() {
-        console.log("start queue building");
         let spotsCounter = 0;
         let customsCounter = 0;
         let queueInterval = setInterval(()=> {
