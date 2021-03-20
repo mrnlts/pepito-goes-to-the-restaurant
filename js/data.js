@@ -31,12 +31,6 @@ const table3 = new Table(table3Btn);
 /*Array*/
 const terrace = [table0, table1, table2, table3];
 
-/*Event Listeners*/
-table0.btn.addEventListener("click", () => {console.log('table0 = ' + table0.status); table0._changeTableStatus();});
-table1.btn.addEventListener("click", () => {console.log('table1 = ' + table1.status); table1._changeTableStatus();});
-table2.btn.addEventListener("click", () => {console.log('table2 = ' + table2.status); table2._changeTableStatus();});
-table3.btn.addEventListener("click", () => {console.log('table3 = ' + table3.status); table3._changeTableStatus();});
-
 //Queue--------------------------------------------------------------------------------------------------------------------------------------------------------------------
 /*Dom*/
 const spot0Html = document.getElementById("spot0");
@@ -48,19 +42,26 @@ const spot5Html = document.getElementById("spot5");
 const spot6Html = document.getElementById("spot6");
 const spot7Html = document.getElementById("spot7"); 
 const spotsHtmlArr = [spot0Html, spot1Html, spot2Html, spot3Html, spot4Html, spot5Html, spot6Html, spot7Html];
+const spotsHtmlQueue = document.getElementById("queue");
+
 /*Array*/
 const queue = [];
 
 //Customers--------------------------------------------------------------------------------------------------------------------------------------------------------------------
-/*Instances*/
-const cust0 = new Customer();
-const cust1 = new Customer();
-const cust2 = new Customer();
-const cust3 = new Customer();
-const cust4 = new Customer();
 /*Array*/
-const customersLooksArr = ["img/Customer0.png","img/Customer1.png","img/Customer2.png","img/Customer3.png", "img/Customer4.png"];
-//Timer
+const customersLooksArr = ['"<img src="img/Customer0.png">','"<img src="img/Customer1.png">', '"<img src="img/Customer2.png">', '"<img src="img/Customer3.png">', '"<img src="img/Customer4.png">'];
+/*Instances*/
+const cust0 = new Customer(customersLooksArr[0]);
+const cust1 = new Customer(customersLooksArr[1]);
+const cust2 = new Customer(customersLooksArr[2]);
+const cust3 = new Customer(customersLooksArr[3]);
+const cust4 = new Customer(customersLooksArr[4]);
+/*function*/
+function _randomNumGenerator(range){
+    return Math.round(Math.random()*range);
+}
+
+//Timer------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 /*Dom*/
 const timer = document.getElementById("timer");
 /*Function*/

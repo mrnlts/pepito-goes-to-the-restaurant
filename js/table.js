@@ -12,18 +12,10 @@ class Table {
                 this.status = 'countdown';
                 break;
             case 'countdown':
-                // setTimeout(this._collect(), 10000);
-                this.status = 'collect';
                 break;
             case 'collect':
                 this.status = 'free';
                 break;
         }
-    }
-    
-    _collect() {
-        console.log(this.status);
-        this._changeTableStatus();
-        console.log(this.status);
     }
 }
