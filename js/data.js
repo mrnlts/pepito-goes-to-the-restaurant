@@ -30,6 +30,7 @@ const table2 = new Table();
 const table3 = new Table();
 /*Array*/
 const terrace = [this.table0, this.table1, this.table2, this.table3];
+
 /*Event Listeners*/
 table0Btn.addEventListener("click", () => {console.log('table0');console.log('click'); console.log(table1.status); _changeTableStatus();});
 table1Btn.addEventListener("click", () => {console.log('table1');console.log('click'); console.log(table2.status);});

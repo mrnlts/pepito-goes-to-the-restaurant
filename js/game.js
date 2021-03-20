@@ -1,31 +1,14 @@
 class Game {
     constructor() {
-        this.terrace = terrace;
-        this.queue = queue;
+        this.terrace = terrace; // Array de tables
+        this.queue = queue; // Array of customers
         this.head = queue[0];
     }
 
-    _changeTableStatus(this.terrace[i]){
-        switch (this.status) {
-            case 'free':
-                _assignCustomerToTable();
-                this.status = 'countdown';
-                break;
-            case 'countdown':
-                setTimeout(this._collect(), 10000);
-                this.status = 'collect';
-                console.log(this.status);
-                break;
-            case 'collect':
-                this.status = 'free';
-                console.log(this.status);
-                break;
-        }
-    }
-
-    _assignCustomerToTable() {
+    _assignCustomerToTable(i) {
+        this.terrace[i]._changeTableStatus();
         setTimeout(_collect(), 100000);
-        table.assignedCostumer = this.head;
+        this.terrace[i].assignedCostumer = this.head;
     }
 
     _gameCountdown() {
