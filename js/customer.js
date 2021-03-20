@@ -1,7 +1,7 @@
 class Customer {
-    constructor(options) {
+    constructor(look) {
         this.mood = 'Neutral';
-        this.look = options.look;
+        this.look = look;
     }
 
     _assignRandomImage(){

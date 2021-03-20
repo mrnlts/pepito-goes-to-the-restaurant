@@ -49,13 +49,15 @@ const queue = [];
 
 //Customers--------------------------------------------------------------------------------------------------------------------------------------------------------------------
 /*Array*/
-const customersLooksArr = ['"<img src="img/Customer0.png">','"<img src="img/Customer1.png">', '"<img src="img/Customer2.png">', '"<img src="img/Customer3.png">', '"<img src="img/Customer4.png">'];
+const customersLooksArr = ['<img src="img/Customer0.png">','<img src="img/Customer1.png">', '<img src="img/Customer2.png">', '<img src="img/Customer3.png">', '<img src="img/Customer4.png">'];
 /*Instances*/
 const cust0 = new Customer(customersLooksArr[0]);
 const cust1 = new Customer(customersLooksArr[1]);
 const cust2 = new Customer(customersLooksArr[2]);
 const cust3 = new Customer(customersLooksArr[3]);
 const cust4 = new Customer(customersLooksArr[4]);
+const people = [cust0, cust1, cust2, cust3, cust4];
+
 /*function*/
 function _randomNumGenerator(range){
     return Math.round(Math.random()*range);
