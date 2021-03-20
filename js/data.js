@@ -31,10 +31,10 @@ const table3 = new Table();
 /*Array*/
 const terrace = [this.table0, this.table1, this.table2, this.table3];
 /*Event Listeners*/
-table0Btn.addEventListener("click", () => {console.log('table0');console.log('click'); console.log(table1.status); table0._changeTableStatus();});
+table0Btn.addEventListener("click", () => {console.log('table0');console.log('click'); console.log(table1.status); _changeTableStatus();});
 table1Btn.addEventListener("click", () => {console.log('table1');console.log('click'); console.log(table2.status);});
 table2Btn.addEventListener("click", () => {console.log('table2');console.log('click'); console.log(table3.status);});
-table3Btn.addEventListener("click", () => {console.log('table3');console.log('click'); console.log(table4.status);});
+table3Btn.addEventListener("click", () => {console.log('table3');console.log('click'); console.log(table3.status);});
 
 //Queue--------------------------------------------------------------------------------------------------------------------------------------------------------------------
 /*Dom*/
@@ -96,4 +96,8 @@ function _countdown(start, target) {
 
 
 // GAME OVER SCREENS
+function _GameOver(){
+    gameScreen.classList.remove("show"); gameScreen.classList.add("hide");
+    winScreen.classList.remove("hide"); winScreen.classList.add("show");
+}
 const winScreen = document.getElementById("winScreen");

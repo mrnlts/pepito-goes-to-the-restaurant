@@ -6,6 +6,6 @@ document.addEventListener('DOMContentLoaded', () => {
     startBtn.addEventListener("click", () => {
         _drawGame();
         game.start();
-        // setTimeout(_drawGameOver(), 300000);
     });
+
 });
