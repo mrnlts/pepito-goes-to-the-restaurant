@@ -5,20 +5,29 @@ class Game {
     }
 
     _assignCustomerToTable(i) {
-        if (this.terrace[i].status === "free"){
-            this.terrace[i].status = "countdown";
-            this.terrace[i].btn.classList.remove("green"); this.terrace[i].btn.classList.add("yellow");
-            this.terrace[i].assignedCostumer = this.queue[0];
-            this.terrace[i].btn.disabled = true;
-            setTimeout(()=> this.terrace[i].status = "countdown", 100000);
-            setTimeout(()=> {
+        this.terrace[i]._changeTableStatus();
+        switch (this.terrace[i].status){
+            case 'free':
+                this.terrace[i].btn.disabled = false; 
+                this.terrace[i].btn.classList.remove("red");this.terrace[i].btn.classList.add("green");        
+                score.innerHTML = parseInt(score.innerHTML)+1;
+                console.log("This is free");
+                break;
+            case 'countdown':
+                console.log("This is countdown");
+                this.terrace[i].btn.classList.remove("green"); this.terrace[i].btn.classList.add("yellow");
+                this.terrace[i].btn.disabled = true;
+                setTimeout(()=> {
+                    this.terrace[i].btn.disabled = false; 
+                    this.terrace[i].btn.classList.remove("yellow"); this.terrace[i].btn.classList.add("red");
+                    this.terrace[i].status = "collect";
+                }, 3000);
+                break;
+            case 'collect':
+                console.log("This is collect");
                 this.terrace[i].btn.disabled = false; 
                 this.terrace[i].btn.classList.remove("yellow"); this.terrace[i].btn.classList.add("red");
-                this.terrace[i].status = "collect";
-            });
-        } else if (this.terrace[i].status === "collect"){
-            this.terrace[i].status = "free";
-            this.terrace[i].btn.classList.remove("red");this.terrace[i].btn.classList.add("green");
+                break;
         }
     }
 

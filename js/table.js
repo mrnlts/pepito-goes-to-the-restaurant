@@ -12,6 +12,7 @@ class Table {
                 this.status = 'countdown';
                 break;
             case 'countdown':
+                this.status = 'collect';
                 break;
             case 'collect':
                 this.status = 'free';

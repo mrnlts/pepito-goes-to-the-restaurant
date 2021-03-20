@@ -27,6 +27,10 @@ body {
     margin-top: 65px;
 }
 
+h2, #score {
+    text-align: left;
+}
+
 .green {
     background-color: lightgreen;
 }
