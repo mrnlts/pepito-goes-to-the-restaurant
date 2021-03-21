@@ -13,6 +13,7 @@ class Game {
                 this.terrace[i].btn.classList.remove("red");this.terrace[i].btn.classList.add("green");        
                 score.innerHTML = parseInt(score.innerHTML)+1;
                 this.terrace[i].assignedCustomer = undefined;
+                tablesHtmlArr[i].innerHTML = i;
                 break;
             case 'countdown':
                 this.terrace[i].btn.classList.remove("green"); this.terrace[i].btn.classList.add("yellow");
@@ -20,6 +21,7 @@ class Game {
 
                 let shiftedCustomer = queue.shift();
                 this.terrace[i].assignedCustomer = shiftedCustomer;
+                tablesHtmlArr[i].innerHTML = shiftedCustomer.look;
                 
                 setTimeout(()=> {
                     this.terrace[i].btn.disabled = false; 
