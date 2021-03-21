@@ -1,11 +1,17 @@
 //SPLASH SCREEN
 const startBtn = document.getElementById("startBtn");
+const howToBtn = document.getElementById("howToBtn");
+const startFromHowToBtn = document.getElementById("startFromHowToBtn");
 const title = document.getElementById("title");
 const splashScreen = document.getElementById("splashScreen");
 function _hideSplashScreen() {splashScreen.classList.remove("show"); splashScreen.classList.add("hide");}
 //--------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-
+//HOW-TO SCREEN
+//General--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+const howToScreen = document.getElementById("howToScreen");
+function _showHowToScreen() {howToScreen.classList.remove("hide"); howToScreen.classList.add("show");}
+function _hideHowToScreen() {howToScreen.classList.remove("show"); howToScreen.classList.add("hide");}
 
 //GAME SCREEN
 //General--------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -25,10 +31,10 @@ const table2Btn = document.getElementById("table2");
 const table3Btn = document.getElementById("table3");
 const tablesHtmlArr = [table0Btn, table1Btn, table2Btn, table3Btn];
 /*Instances*/
-const table0 = new Table(table0Btn, "free");
-const table1 = new Table(table1Btn, "collect");
-const table2 = new Table(table2Btn, "collect");
-const table3 = new Table(table3Btn, "collect");
+const table0 = new Table(table0Btn);
+const table1 = new Table(table1Btn);
+const table2 = new Table(table2Btn);
+const table3 = new Table(table3Btn);
 /*Array*/
 const terrace = [table0, table1, table2, table3];
 /*Functions*/

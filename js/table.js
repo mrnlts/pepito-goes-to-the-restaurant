@@ -1,7 +1,7 @@
 class Table {
-    constructor(btn, status) {
+    constructor(btn) {
         this.number = 0;
-        this.status = status;
+        this.status = "free";
         this.btn = btn;
         this.assignedCustomer = undefined;
     }

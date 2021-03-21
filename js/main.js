@@ -4,6 +4,17 @@ document.addEventListener('DOMContentLoaded', () => {
     const game = new Game();   
     
     /*Event Listeners*/
+    
+    //Start event
+    startBtn.addEventListener("click", () => {
+        game.start();});
+    //How to play event
+    howToBtn.addEventListener("click", () => {
+        game.howToPlay();});
+    //Start from How-to screen
+    startFromHowToBtn.addEventListener("click", ()=> {
+        game.startFromInstructions();});
+
     //Table 0 event
     table0.btn.addEventListener('click', () => {
         game._assignCustomerToTable(terrace.indexOf(table0));});
@@ -16,9 +27,8 @@ document.addEventListener('DOMContentLoaded', () => {
     //Table 3 event
     table3.btn.addEventListener('click', () => {
         game._assignCustomerToTable(terrace.indexOf(table3));});
-    //Start event
-    startBtn.addEventListener("click", () => {
-        game.start();});
+});
+
     // playAgainWinner.addEventListener("click", () => {
     //     game._reset();
     //     _hideWinScreen();
@@ -27,5 +37,3 @@ document.addEventListener('DOMContentLoaded', () => {
     //     game._reset();
     //     _hideLoseScreen();
     //     game.start();});
-});
-

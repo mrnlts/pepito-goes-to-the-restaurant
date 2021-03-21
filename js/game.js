@@ -5,24 +5,29 @@ class Game {
         this.queueHtmlArr = queueHtmlArr;
     }
 
-    _assignCustomerToTable(i) {
-        this.terrace[i]._changeTableStatus();
-        switch (this.terrace[i].status){
-            case 'free':
-                freeTable.bind(Game);    
-                _freeTable(this.terrace[i], [i]);
-                break;
-            case 'countdown':
-                countdownTable.bind(Game);
-                _countdownTable(this.terrace[i], [i]);
-                break;
-            case 'collect':
-                collectTable.bind(Game);
-                _collectTable(this.terrace[i], [i]);
-                break;
-        }
+    start(){
+        console.log("The game has started");
+        _drawGame();
+        this._gameCountdown();
+        this._buildQueue();
+        this._checkProgress();
     }
-
+    howToPlay(){
+        console.log("these are the instructions");
+        _hideSplashScreen();
+        _showHowToScreen();
+    }
+    startFromInstructions(){
+        console.log("the game has started");
+        _hideHowToScreen();
+        _drawGame();
+        this._gameCountdown();
+        this._buildQueue();
+        this._checkProgress();
+    }
+    _gameCountdown() {
+        _countdown(60, timer);
+    }
     _buildQueue() {
         let spotsCounter = 0;
         let customsCounter = 0;
@@ -43,7 +48,6 @@ class Game {
             }
             }, 1500);    
     }
-
     _checkProgress() {
         if (this.queue.length > 3 && patience.innerHTML !== "1") {
             patience.innerHTML = parseInt(patience.innerHTML)-1;    
@@ -54,25 +58,29 @@ class Game {
         //     this._gameOver(lose);
         // }
     }
-
-    _gameCountdown() {
-        _countdown(60, timer);
+    _assignCustomerToTable(i) {
+        this.terrace[i]._changeTableStatus();
+        switch (this.terrace[i].status){
+            case 'free':
+                freeTable.bind(Game);    
+                _freeTable(this.terrace[i], [i]);
+                break;
+            case 'countdown':
+                countdownTable.bind(Game);
+                _countdownTable(this.terrace[i], [i]);
+                break;
+            case 'collect':
+                collectTable.bind(Game);
+                _collectTable(this.terrace[i], [i]);
+                break;
+        }
     }
-
     _gameOver(x) {
         _drawGameOver(x);
     }
+}
 
-    start(){
-        console.log("The game has started");
-        _drawGame();
-        this._gameCountdown();
-        this._buildQueue();
-        this._checkProgress();
-    }
 
     // _reset() {
     //     clearQueue.bind(this._buildQueue);
     // }    
-
-}
