@@ -54,7 +54,8 @@ function _countdownTable(table, i) {
             table.btn.disabled = true;
             table.assignedCustomer = shiftedCustomer;
             tablesHtmlArr[i].innerHTML = shiftedCustomer.look;
-            queueHtmlArr.forEach(()=>_advanceQueue());
+            // queueHtmlArr.forEach((spot)=> {if(spot.innerHTML === '') {console.log("there's nobody behind me"); spot.innerHTML= spot.innerHTML;} else {console.log("coming");_advanceQueue();}});
+            queueHtmlArr.forEach(()=> _advanceQueue());
             setTimeout(()=> {
                 table.btn.disabled = false; 
                 table.btn.classList.remove("yellow"); table.btn.classList.add("red");
