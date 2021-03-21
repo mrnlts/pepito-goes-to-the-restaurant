@@ -22,6 +22,7 @@ class Game {
                 let shiftedCustomer = queue.shift();
                 this.terrace[i].assignedCustomer = shiftedCustomer;
                 tablesHtmlArr[i].innerHTML = shiftedCustomer.look;
+                _advanceQueue();
                 
                 setTimeout(()=> {
                     this.terrace[i].btn.disabled = false; 

@@ -47,6 +47,16 @@ const spotsHtmlQueue = document.getElementById("queue");
 
 /*Array*/
 const queue = [];
+function _advanceQueue() {
+    spot0Html.innerHTML =spot1Html.innerHTML;
+    spot1Html.innerHTML = spot2Html.innerHTML;
+    spot2Html.innerHTML = spot3Html.innerHTML;
+    spot3Html.innerHTML = spot4Html.innerHTML;
+    spot4Html.innerHTML = spot5Html.innerHTML;
+    spot5Html.innerHTML = spot6Html.innerHTML;
+    spot6Html.innerHTML = spot7Html.innerHTML;
+    spot7Html.innerHTML = '';
+}
 
 //Customers--------------------------------------------------------------------------------------------------------------------------------------------------------------------
 /*Array*/
