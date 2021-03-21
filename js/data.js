@@ -42,7 +42,7 @@ const spot4Html = document.getElementById("spot4");
 const spot5Html = document.getElementById("spot5");
 const spot6Html = document.getElementById("spot6");
 const spot7Html = document.getElementById("spot7"); 
-const spotsHtmlArr = [spot0Html, spot1Html, spot2Html, spot3Html, spot4Html, spot5Html, spot6Html, spot7Html];
+
 const spotsHtmlQueue = document.getElementById("queue");
 
 /*Array*/

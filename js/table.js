@@ -3,7 +3,7 @@ class Table {
         this.number = 0;
         this.status = 'free';
         this.btn = btn;
-        this.assignedCostumer = undefined;
+        this.assignedCustomer = undefined;
     }
 
     _changeTableStatus(){

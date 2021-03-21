@@ -2,6 +2,7 @@ class Game {
     constructor() {
         this.terrace = terrace; // Array of tables
         this.queue = queue; // Array of customers
+        this.queueHtmlArr = [spot0Html, spot1Html, spot2Html, spot3Html, spot4Html, spot5Html, spot6Html, spot7Html];
     }
 
     _assignCustomerToTable(i) {
@@ -11,10 +12,15 @@ class Game {
                 this.terrace[i].btn.disabled = false; 
                 this.terrace[i].btn.classList.remove("red");this.terrace[i].btn.classList.add("green");        
                 score.innerHTML = parseInt(score.innerHTML)+1;
+                this.terrace[i].assignedCustomer = undefined;
                 break;
             case 'countdown':
                 this.terrace[i].btn.classList.remove("green"); this.terrace[i].btn.classList.add("yellow");
                 this.terrace[i].btn.disabled = true;
+
+                let shiftedCustomer = queue.shift();
+                this.terrace[i].assignedCustomer = shiftedCustomer;
+                
                 setTimeout(()=> {
                     this.terrace[i].btn.disabled = false; 
                     this.terrace[i].btn.classList.remove("yellow"); this.terrace[i].btn.classList.add("red");
@@ -31,9 +37,9 @@ class Game {
     _buildQueue() {
         let spotsCounter = 0;
         let customsCounter = 0;
-        let queueInterval = setInterval(()=> {
+        let queueInterval = setInterval(()=> {  
             if (customsCounter <= 3) {
-                const currentSpot = spotsHtmlArr[spotsCounter];
+                const currentSpot = this.queueHtmlArr[spotsCounter];
                 const currentCustom = people[Math.round(Math.random()*4)];
                 currentSpot.innerHTML = currentCustom.look;
                 queue.push(currentCustom);
