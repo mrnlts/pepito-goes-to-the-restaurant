@@ -17,21 +17,7 @@
         </div>
         
         <div id="gameScreen" class="hide"> <!--GAME SCREEN-->
-            <h2>Score:</h2>
-            <div><p id =score>0</p></div>
-            
-            <h1>Time left:</h1>
-            <div id="timer">05:00</div>
-
-            <div id="terrace">
-            <h1 id="title">Terrace</h1>
-                <button class="green" style="font-size: large" id="table0">0</button>
-                <button class="green" style="font-size: large" id="table1">1</button>
-                <button class="green" style="font-size: large" id="table2">2</button>
-                <button class="green" style="font-size: large" id="table3">3</button>
-            </div>    
-            
-            <h1 id="title"></br>Queue</h1>
+            <h1>Restaurant queue</h1>
             <div id="queue">
                 <div id="spot0"></div>
                 <div id="spot1"></div>
@@ -42,11 +28,36 @@
                 <div id="spot6"></div>
                 <div id="spot7"></div>
             </div>
+
+            <div id="terrace">
+                <h1 id="title">Terrace</h1>
+                    <span>Table 0</span>
+                    <button class="green" style="font-size: large" id="table0">0</button>
+                    <span>Table 1</span>
+                    <button class="green" style="font-size: large" id="table1">1</button>
+                    </br><span>Table 2</span>
+                    <button class="green" style="font-size: large" id="table2">2</button>
+                    <span>Table 3</span>
+                    <button class="green" style="font-size: large" id="table3">3</button>
+            </div>    
+            <h2 id="scoreCount">Score:</h2>
+            <p id ="score">0</p>
+
+            <h2 id="patienceCount">Patience counter:</h2>
+            <p id="patience">4</p>
+            
+            <div id="timer">01:00</div>
+
         </div>
 
         <div id="winScreen" class="hide"> <!--WIN-->
-            <button class="winBtn">PLAY AGAIN?</button>
             <img src="img/winScreen.gif" alt="congrats!">
+            <!-- <button id="playAgainWinBtn">PLAY AGAIN?</button> -->
+        </div>
+
+        <div id="loseScreen" class="hide"> <!--LOSE-->
+            <img src="img/loseScreen.gif" alt="epic fail!">
+            <!-- <button id="playAgainLoseBtn">PLAY AGAIN?</button> -->
         </div>
     </div>
     

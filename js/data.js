@@ -16,7 +16,7 @@ function _drawGame() {
 function _drawGameScreen() {gameScreen.classList.remove("hide"); gameScreen.classList.add("show");}
 const gameScreen = document.getElementById("gameScreen");
 const score = document.getElementById("score");
-
+const patience = document.getElementById("patience");
 //Tables--------------------------------------------------------------------------------------------------------------------------------------------------------------------
 /*Dom*/
 const table0Btn = document.getElementById("table0");
@@ -25,12 +25,48 @@ const table2Btn = document.getElementById("table2");
 const table3Btn = document.getElementById("table3");
 const tablesHtmlArr = [table0Btn, table1Btn, table2Btn, table3Btn];
 /*Instances*/
-const table0 = new Table(table0Btn);
-const table1 = new Table(table1Btn);
-const table2 = new Table(table2Btn);
-const table3 = new Table(table3Btn);
+const table0 = new Table(table0Btn, "free");
+const table1 = new Table(table1Btn, "collect");
+const table2 = new Table(table2Btn, "collect");
+const table3 = new Table(table3Btn, "collect");
 /*Array*/
 const terrace = [table0, table1, table2, table3];
+/*Functions*/
+function _freeTable(table, i) {
+    table.btn.disabled = false; 
+    table.btn.classList.remove("red");table.btn.classList.add("green");        
+    score.innerHTML = parseInt(score.innerHTML)+1;
+    table.assignedCustomer = undefined;
+    tablesHtmlArr[i].innerHTML = i;
+}
+const freeTable = _freeTable;
+
+function _countdownTable(table, i) {
+    let shiftedCustomer = queue.shift();
+        if (shiftedCustomer !== undefined) {
+            table.btn.classList.remove("green"); table.btn.classList.add("yellow");
+            table.btn.disabled = true;
+            table.assignedCustomer = shiftedCustomer;
+            tablesHtmlArr[i].innerHTML = shiftedCustomer.look;
+            queueHtmlArr.forEach(()=>_advanceQueue());
+            setTimeout(()=> {
+                table.btn.disabled = false; 
+                table.btn.classList.remove("yellow"); table.btn.classList.add("red");
+                table.status = "collect";
+            }, 3000);
+        } else {
+            table.status = "free";
+        }
+}
+const countdownTable = _countdownTable;
+
+function _collectTable(table) {
+    table.btn.disabled = false; 
+    table.btn.classList.remove("yellow"); table.btn.classList.add("red");
+}
+const collectTable = _collectTable;
+
+
 
 //Queue--------------------------------------------------------------------------------------------------------------------------------------------------------------------
 /*Dom*/
@@ -42,13 +78,13 @@ const spot4Html = document.getElementById("spot4");
 const spot5Html = document.getElementById("spot5");
 const spot6Html = document.getElementById("spot6");
 const spot7Html = document.getElementById("spot7"); 
-
+const queueHtmlArr = [spot0Html, spot1Html, spot2Html, spot3Html, spot4Html, spot5Html, spot6Html, spot7Html];
 const spotsHtmlQueue = document.getElementById("queue");
 
 /*Array*/
 const queue = [];
 function _advanceQueue() {
-    spot0Html.innerHTML =spot1Html.innerHTML;
+    spot0Html.innerHTML = spot1Html.innerHTML;
     spot1Html.innerHTML = spot2Html.innerHTML;
     spot2Html.innerHTML = spot3Html.innerHTML;
     spot3Html.innerHTML = spot4Html.innerHTML;
@@ -57,6 +93,21 @@ function _advanceQueue() {
     spot6Html.innerHTML = spot7Html.innerHTML;
     spot7Html.innerHTML = '';
 }
+// function _advanceQueue() {
+//     let counter= 0;
+//     for (let i=0; i< 8; i++) {
+//         let x = ("spot"+`${counter}`+"Html");
+//         let y = ("spot"+`${counter+1}`+"Html");
+//         x.innerHTML = y.innerHTML;
+//         counter++;
+//     }
+//  }  
+// function _clearQueue() {
+//     clearInterval(queueInterval);
+//     console.log("interval cleared");
+// }
+// const clearQueue = _clearQueue;
+
 
 //Customers--------------------------------------------------------------------------------------------------------------------------------------------------------------------
 /*Array*/
@@ -101,6 +152,7 @@ function _countdown(start, target) {
             start--;
         } else {
             clearInterval(subsInt);
+            _drawGameOver("win");
             return;
         }
     }
@@ -109,10 +161,27 @@ function _countdown(start, target) {
 //--------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
-
 // GAME OVER SCREENS
-function _GameOver(){
+function _drawGameOver(result) {
+    console.log("game over");
     gameScreen.classList.remove("show"); gameScreen.classList.add("hide");
-    winScreen.classList.remove("hide"); winScreen.classList.add("show");
+    if (result === "win") {
+        winScreen.classList.remove("hide"); winScreen.classList.add("show");
+    } else if (result === "lose") {
+        loseScreen.classList.remove("hide"); loseScreen.classList.add("show");
+    }
 }
+
+function _hideWinScreen() {
+    winScreen.classList.remove("show"); winScreen.classList.add("hide");
+    console.log("hide win screen");
+}
+function _hideLoseScreen() {
+    loseScreen.classList.remove("show"); loseScreen.classList.add("hide");
+    console.log("hide lose screen");
+}
+    
 const winScreen = document.getElementById("winScreen");
+const loseScreen = document.getElementById("loseScreen");
+// const playAgainWinner = document.getElementById("playAgainWinBtn");
+// const playAgainLoser = document.getElementById("playAgainLoseBtn");

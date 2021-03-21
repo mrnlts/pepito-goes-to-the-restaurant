@@ -6,37 +6,72 @@
 body {
     margin: 20px;
     width: 500px;
-    height: 500px;
-    border: 1px solid black;
-}
-
-#splashScreen {
     overflow: hidden;
 }
 
-#splashScreen > img{
-    position: relative;
-    top: 50px;
-    left: -50px;
-    height: 350px;
+
+#gameScreen {
+    padding: 20px;
+    height: 550px;
+    background-color: rgba(60, 18, 36, 0.672);
+    color: white;
 }
 
-#splashScreen > button {
+#splashScreen, 
+#winScreen, 
+#loseScreen {
+    height: 440px;
+    background-color: rgb(60, 18, 36);
+}
+
+#splashScreen > img,
+#winScreen > img,
+#loseScreen > img {
+    position: relative;
+    top: 50px;
+    width: 100%;
+    height: auto;
+}
+
+#splashScreen > button,
+#winScreen > button,
+#loseScreen > button {
     height: 70px;
     width: 150px;
     margin-top: 65px;
 }
 
-h2, #score {
+#scoreCount, #score {
+    font-size: 30px;
     text-align: left;
+}
+
+#patienceCount, #patience {
+    font-size: 30px;
+    position: relative;
+    top: -60px;
+    text-align: right;
+}
+
+#timer {
+    position: relative;
+    font-size: 30px;
+    left: 40%;
+    padding: 10px;
+    top: -50px;
+    width: fit-content;
+    text-align: center;
+    border: 2px solid white;
 }
 
 .green {
     background-color: lightgreen;
 }
+
 .yellow {
-    background-color: lightyellow;
+    background-color: yellow;
 }
+
 .red {
     background-color: lightcoral;
 }
@@ -44,18 +79,21 @@ h2, #score {
 .show {
     display: block;
 }
+
 .hide{
     display: none;
 }
 
 #terrace > button {
+    position: relative;
     width: 70px;
     height: 70px;
     margin: 20px 20px 0;
+    overflow: hidden;
 }
 
 #title {
-    font-size: xx-large;
+    font-size: large;
 }
 
 #gameScreen {
@@ -63,8 +101,6 @@ h2, #score {
 }
 
 #queue {
-    margin-top: 30px;
-    padding-top: 20px;
     display: flex;
     justify-content: center;
     flex-wrap: wrap;

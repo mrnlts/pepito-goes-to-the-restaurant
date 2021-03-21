@@ -1,38 +1,24 @@
 class Game {
     constructor() {
         this.terrace = terrace; // Array of tables
-        this.queue = queue; // Array of customers
-        this.queueHtmlArr = [spot0Html, spot1Html, spot2Html, spot3Html, spot4Html, spot5Html, spot6Html, spot7Html];
+        this.queue = queue; // Array of waiting customers
+        this.queueHtmlArr = queueHtmlArr;
     }
 
     _assignCustomerToTable(i) {
         this.terrace[i]._changeTableStatus();
         switch (this.terrace[i].status){
             case 'free':
-                this.terrace[i].btn.disabled = false; 
-                this.terrace[i].btn.classList.remove("red");this.terrace[i].btn.classList.add("green");        
-                score.innerHTML = parseInt(score.innerHTML)+1;
-                this.terrace[i].assignedCustomer = undefined;
-                tablesHtmlArr[i].innerHTML = i;
+                freeTable.bind(Game);    
+                _freeTable(this.terrace[i], [i]);
                 break;
             case 'countdown':
-                this.terrace[i].btn.classList.remove("green"); this.terrace[i].btn.classList.add("yellow");
-                this.terrace[i].btn.disabled = true;
-
-                let shiftedCustomer = queue.shift();
-                this.terrace[i].assignedCustomer = shiftedCustomer;
-                tablesHtmlArr[i].innerHTML = shiftedCustomer.look;
-                _advanceQueue();
-                
-                setTimeout(()=> {
-                    this.terrace[i].btn.disabled = false; 
-                    this.terrace[i].btn.classList.remove("yellow"); this.terrace[i].btn.classList.add("red");
-                    this.terrace[i].status = "collect";
-                }, 3000);
+                countdownTable.bind(Game);
+                _countdownTable(this.terrace[i], [i]);
                 break;
             case 'collect':
-                this.terrace[i].btn.disabled = false; 
-                this.terrace[i].btn.classList.remove("yellow"); this.terrace[i].btn.classList.add("red");
+                collectTable.bind(Game);
+                _collectTable(this.terrace[i], [i]);
                 break;
         }
     }
@@ -40,28 +26,41 @@ class Game {
     _buildQueue() {
         let spotsCounter = 0;
         let customsCounter = 0;
-        let queueInterval = setInterval(()=> {  
+        const queueInterval = setInterval(()=> {  
+            this._checkProgress();
             if (customsCounter <= 3) {
                 const currentSpot = this.queueHtmlArr[spotsCounter];
                 const currentCustom = people[Math.round(Math.random()*4)];
                 currentSpot.innerHTML = currentCustom.look;
                 queue.push(currentCustom);
-                console.log(queue);
             } else {
                 customsCounter = 0;
             }
-            if (spotsCounter <= 7) {
+            if (spotsCounter <= 6) {
                 spotsCounter++;
             } else {
-                return;
+                spotsCounter = 0;
             }
-            }, 1500);
-        
-        // setTimeout(clearInterval(queueInterval), 300000);
+            }, 1500);    
+    }
+
+    _checkProgress() {
+        if (this.queue.length > 3 && patience.innerHTML !== "1") {
+            patience.innerHTML = parseInt(patience.innerHTML)-1;    
+        } else if (patience.innerHTML === "1") {
+            this._gameOver("lose");
+        }
+        // } else if (patience <= 0) {
+        //     this._gameOver(lose);
+        // }
     }
 
     _gameCountdown() {
-        _countdown(300, timer);
+        _countdown(60, timer);
+    }
+
+    _gameOver(x) {
+        _drawGameOver(x);
     }
 
     start(){
@@ -69,8 +68,11 @@ class Game {
         _drawGame();
         this._gameCountdown();
         this._buildQueue();
-        if (this._gameCountdown() === 0) {
-        _GameOver();
-        }
+        this._checkProgress();
     }
+
+    // _reset() {
+    //     clearQueue.bind(this._buildQueue);
+    // }    
+
 }
