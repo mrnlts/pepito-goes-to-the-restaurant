@@ -3,6 +3,7 @@ class Game {
         this.terrace = terrace; // Array of tables
         this.queue = queue; // Array of waiting customers
         this.queueHtmlArr = queueHtmlArr;
+        this.queueInt = (x) => clearInterval(x);
     }
 
     start(){
@@ -12,11 +13,13 @@ class Game {
         this._buildQueue();
         this._checkProgress();
     }
+
     howToPlay(){
         console.log("these are the instructions");
         _hideSplashScreen();
         _showHowToScreen();
     }
+
     startFromInstructions(){
         console.log("the game has started");
         _hideHowToScreen();
@@ -25,9 +28,11 @@ class Game {
         this._buildQueue();
         this._checkProgress();
     }
+
     _gameCountdown() {
         _countdown(60, timer);
     }
+
     _buildQueue() {
         let spotsCounter = 0;
         let customsCounter = 0;
@@ -49,6 +54,11 @@ class Game {
             }
             }, 1500);    
     }
+
+    // _clearQueue() {
+    //     clearInterval(queueInterval);
+    // }
+
     _checkProgress() {
         if (this.queue.length > 3 && patience.innerHTML !== "1") {
             patience.innerHTML = parseInt(patience.innerHTML)-1;    
@@ -56,6 +66,7 @@ class Game {
             this._gameOver("lose");
         }
     }
+
     _assignCustomerToTable(i) {
         this.terrace[i]._changeTableStatus();
         switch (this.terrace[i].status){

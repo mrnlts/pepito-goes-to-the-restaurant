@@ -55,7 +55,7 @@ function _countdownTable(table, i) {
             table.assignedCustomer = shiftedCustomer;
             tablesHtmlArr[i].innerHTML = shiftedCustomer.look;
             // queueHtmlArr.forEach((spot)=> {if(spot.innerHTML === '') {console.log("there's nobody behind me"); spot.innerHTML= spot.innerHTML;} else {console.log("coming");_advanceQueue();}});
-            // queueHtmlArr.forEach(()=> _advanceQueue());
+            queueHtmlArr.forEach(()=> _advanceQueue());
             setTimeout(()=> {
                 table.btn.disabled = false; 
                 table.btn.classList.remove("yellow"); table.btn.classList.add("red");
@@ -166,6 +166,8 @@ function _countdown(start, target) {
     }
     let subsInt = setInterval(() => substract(), 1000);
 }
+
+
 //--------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
@@ -174,9 +176,9 @@ function _drawGameOver(result) {
     console.log("game over");
     gameScreen.classList.remove("show"); gameScreen.classList.add("hide");
     if (result === "win") {
-        winScreen.classList.remove("hide"); winScreen.classList.add("show");
+        winScreen.classList.remove("hide"); winScreen.classList.add("show"); patience.innerHTML === "-1";
     } else if (result === "lose") {
-        loseScreen.classList.remove("hide"); loseScreen.classList.add("show");
+        loseScreen.classList.remove("hide"); loseScreen.classList.add("show"); winScreen.classList.add("hide");
     }
 }
 
