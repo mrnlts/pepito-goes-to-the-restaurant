@@ -177,7 +177,7 @@ function _drawGameOver(result) {
     console.log("game over");
     gameScreen.classList.remove("show"); gameScreen.classList.add("hide");
     if (result === "win") {
-        winScreen.classList.remove("hide"); winScreen.classList.add("show"); patience.innerHTML === "-1";
+        winScreen.classList.remove("hide"); winScreen.classList.add("show"); patience.innerHTML === "-1"; tablesHtmlArr.forEach((spot) => spot.innerHTML = "");
     } else if (result === "lose") {
         loseScreen.classList.remove("hide"); loseScreen.classList.add("show"); clearInterval(subsInt);
     }
