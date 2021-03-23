@@ -5,6 +5,7 @@ const startFromHowToBtn = document.getElementById("startFromHowToBtn");
 const title = document.getElementById("title");
 const splashScreen = document.getElementById("splashScreen");
 function _hideSplashScreen() {splashScreen.classList.remove("show"); splashScreen.classList.add("hide");}
+function _drawSplashScreen() {splashScreen.classList.remove("hide"); splashScreen.classList.add("show");}
 //--------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 //HOW-TO SCREEN
@@ -90,7 +91,7 @@ const queueHtmlArr = [spot0Html, spot1Html, spot2Html, spot3Html, spot4Html, spo
 const spotsHtmlQueue = document.getElementById("queue");
 
 /*Array*/
-const queue = [];
+let queue = [];
 function _advanceQueue() {
     spot0Html.innerHTML = spot1Html.innerHTML;
     spot1Html.innerHTML = spot2Html.innerHTML;
@@ -137,6 +138,7 @@ function _randomNumGenerator(range){
 /*Dom*/
 const timer = document.getElementById("timer");
 /*Function*/
+let subsInt;
 function _countdown(start, target) {
     function getTime() {
         let rest = Math.round(start % 60);
@@ -160,11 +162,11 @@ function _countdown(start, target) {
             start--;
         } else {
             clearInterval(subsInt);
-            _drawGameOver("win", this._clearQueue);
+            _drawGameOver("win");
             return;
         }
     }
-    let subsInt = setInterval(() => substract(), 1000);
+    subsInt = setInterval(() => substract(), 1000);
 }
 
 //--------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -177,7 +179,7 @@ function _drawGameOver(result) {
     if (result === "win") {
         winScreen.classList.remove("hide"); winScreen.classList.add("show"); patience.innerHTML === "-1";
     } else if (result === "lose") {
-        loseScreen.classList.remove("hide"); loseScreen.classList.add("show"); winScreen.classList.add("hide");
+        loseScreen.classList.remove("hide"); loseScreen.classList.add("show"); clearInterval(subsInt);
     }
 }
 

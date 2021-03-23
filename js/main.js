@@ -30,12 +30,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     playAgainWinBtn.addEventListener("click", () => {
-        game._reset();
         _hideWinScreen();
-        game.start();});
-    playAgainLoseBtn.addEventListener("click", () => {
         game._reset();
+        game.start();
+    });
+    playAgainLoseBtn.addEventListener("click", () => {
         _hideLoseScreen();
-        game.start();});
+        game._reset();
+        game.start();
+    });
 
     });

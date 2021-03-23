@@ -69,7 +69,7 @@ class Game {
         if (this.queue.length > 3 && patience.innerHTML !== "1") {
             patience.innerHTML = parseInt(patience.innerHTML)-1;    
         } else if (patience.innerHTML === "1") {
-            this._gameOver("lose", this._clearQueue);
+            this._gameOver("lose");
         }
         setTimeout(()=>this._checkWin(), 60000);
     }
@@ -91,13 +91,16 @@ class Game {
                 break;
         }
     }
-    _gameOver(x, callback) {
+    _gameOver(x) {
         _drawGameOver(x);
-        callback();
+        this._clearQueue();
     }
 
-    // _reset(screen, cb) {
-    //     console.log("this is a reset");
-    //     _drawGame(screen);
-    // }
+    _reset() {
+        console.log("this is a reset");
+        _drawSplashScreen();
+        patience.innerHTML = 9;
+        queue = [];
+        queueHtmlArr.forEach((spot)=> spot.innerHTML="");
+    }
 }
