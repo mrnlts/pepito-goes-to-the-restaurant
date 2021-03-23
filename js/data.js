@@ -44,7 +44,7 @@ function _freeTable(table, i) {
     table.btn.classList.remove("red");table.btn.classList.add("green");        
     score.innerHTML = parseInt(score.innerHTML)+1;
     table.assignedCustomer = undefined;
-    tablesHtmlArr[i].innerHTML = i;
+    tablesHtmlArr[i].innerHTML = "";
 }
 const freeTable = _freeTable;
 
