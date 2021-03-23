@@ -160,7 +160,7 @@ function _countdown(start, target) {
             start--;
         } else {
             clearInterval(subsInt);
-            _drawGameOver("win");
+            _drawGameOver("win", this._clearQueue);
             return;
         }
     }

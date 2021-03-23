@@ -27,13 +27,15 @@ document.addEventListener('DOMContentLoaded', () => {
     //Table 3 event
     table3.btn.addEventListener('click', () => {
         game._assignCustomerToTable(terrace.indexOf(table3));});
-});
 
-    // playAgainWinner.addEventListener("click", () => {
-    //     game._reset();
-    //     _hideWinScreen();
-    //     game.start();});
-    // playAgainLoser.addEventListener("click", () => {
-    //     game._reset();
-    //     _hideLoseScreen();
-    //     game.start();});
+
+    playAgainWinBtn.addEventListener("click", () => {
+        game._reset();
+        _hideWinScreen();
+        game.start();});
+    playAgainLoseBtn.addEventListener("click", () => {
+        game._reset();
+        _hideLoseScreen();
+        game.start();});
+
+    });
