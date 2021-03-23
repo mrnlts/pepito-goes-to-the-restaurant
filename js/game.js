@@ -3,7 +3,7 @@ class Game {
         this.terrace = terrace; // Array of tables
         this.queue = queue; // Array of waiting customers
         this.queueHtmlArr = queueHtmlArr;
-        this.queueInt = (x) => clearInterval(x);
+        this.queueInterval = 0;
     }
 
     start(){
@@ -30,13 +30,13 @@ class Game {
     }
 
     _gameCountdown() {
-        _countdown(60, timer);
+        _countdown(10, timer);
     }
 
     _buildQueue() {
         let spotsCounter = 0;
         let customsCounter = 0;
-        const queueInterval = setInterval(()=> {  
+        this.queueInterval = setInterval(()=> {  
             this._checkProgress();
             if (customsCounter <= 3) {
                 const currentSpot = this.queueHtmlArr[spotsCounter];
@@ -55,9 +55,15 @@ class Game {
             }, 1500);    
     }
 
-    // _clearQueue() {
-    //     clearInterval(queueInterval);
-    // }
+    _clearQueue() {
+        clearInterval(this.queueInterval);
+    }
+
+    _checkWin() {
+        if (patience.innerHTML > 1) {
+            this._clearQueue();
+        }
+    }
 
     _checkProgress() {
         if (this.queue.length > 3 && patience.innerHTML !== "1") {
@@ -65,6 +71,7 @@ class Game {
         } else if (patience.innerHTML === "1") {
             this._gameOver("lose");
         }
+        setTimeout(()=>this._checkWin(), 10000);
     }
 
     _assignCustomerToTable(i) {
@@ -86,5 +93,11 @@ class Game {
     }
     _gameOver(x) {
         _drawGameOver(x);
+        
+    }
+
+    _reset() {
+        console.log("this is a reset");
+        clearInterval(queueInterval);
     }
 }
