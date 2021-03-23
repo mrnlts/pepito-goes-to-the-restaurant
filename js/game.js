@@ -38,6 +38,7 @@ class Game {
                 const currentCustom = people[Math.round(Math.random()*4)];
                 currentSpot.innerHTML = currentCustom.look;
                 queue.push(currentCustom);
+                console.log(queue);
             } else {
                 customsCounter = 0;
             }
@@ -54,9 +55,6 @@ class Game {
         } else if (patience.innerHTML === "1") {
             this._gameOver("lose");
         }
-        // } else if (patience <= 0) {
-        //     this._gameOver(lose);
-        // }
     }
     _assignCustomerToTable(i) {
         this.terrace[i]._changeTableStatus();
@@ -79,8 +77,3 @@ class Game {
         _drawGameOver(x);
     }
 }
-
-
-    // _reset() {
-    //     clearQueue.bind(this._buildQueue);
-    // }    
