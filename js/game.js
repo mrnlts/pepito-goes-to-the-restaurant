@@ -6,7 +6,7 @@ class Game {
         this.queueHtmlArr = queueHtmlArr;
         this.queueInterval = 0;
         this.backgroundSound = new sound ("sound/jazzyfrenchy.mp3", 0.2);
-        this.coinSound = new sound ("sound/score.ogg", 1);
+        this.coinSound = new sound ("sound/coins.mp3", 1);
     }
 
     start(){
@@ -109,11 +109,11 @@ class Game {
     _reset() {
         console.log("this is a reset");
         _drawSplashScreen();
-        patience.innerHTML = 9;
-        queue = [];
         queueHtmlArr.forEach((spot)=> spot.innerHTML="");
         this.terraceHtml.innerHTML = terraceHtmlCopy;  
+        patience.innerHTML = 9;
+        score.innerHTML = 0;
+        queue = [];
         this.backgroundSound.play();
- 
     }
 }

@@ -49,10 +49,19 @@ body {
 #splashScreen > button,
 #howToScreen > button,
 #winScreen > button,
-#loseScreen > button {    
+#loseScreen > button {   
+    font-family: inherit; 
     padding: 4.65% 0;
     width: 30%;
     margin: 10% auto 7.5%;
     color: white;
     background-color: rgb(100, 70, 83);
+}
+
+#showScoreWin, 
+#showScoreLose {
+    position: absolute;
+    top: 70%;
+    left: 40%;
+    font-size: 3rem;
 }

@@ -34,11 +34,9 @@ function sound(src, volume) {
     document.body.appendChild(this.sound);
     this.play = function(){
       this.sound.play();
-      console.log(`${this.sound.src} is playing`);
     }
     this.stop = function(){
       this.sound.pause();
-      console.log(`${this.sound.src} has stopped`);
     }
   }
 
@@ -199,11 +197,12 @@ function _drawGameOver(result) {
     gameScreen.classList.remove("show"); gameScreen.classList.add("hide");
     if (result === "win") {
         winScreen.classList.remove("hide"); winScreen.classList.add("show"); patience.innerHTML === "-1"; tablesHtmlArr.forEach((spot) => spot.innerHTML = "");
+        finalScoreWin.innerHTML = `Final score: ${score.innerHTML}`;
     } else if (result === "lose") {
         loseScreen.classList.remove("hide"); loseScreen.classList.add("show"); clearInterval(subsInt);
+        finalScoreLose.innerHTML = `Final score: ${score.innerHTML}`;
     }
 }
-
 function _hideWinScreen() {
     winScreen.classList.remove("show"); winScreen.classList.add("hide");
     console.log("hide win screen");
@@ -215,5 +214,5 @@ function _hideLoseScreen() {
     
 const winScreen = document.getElementById("winScreen");
 const loseScreen = document.getElementById("loseScreen");
-// const playAgainWinner = document.getElementById("playAgainWinBtn");
-// const playAgainLoser = document.getElementById("playAgainLoseBtn");
+const finalScoreWin = document.getElementById("showScoreWin");
+const finalScoreLose = document.getElementById("showScoreLose");
