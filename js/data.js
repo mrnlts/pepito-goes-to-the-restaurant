@@ -24,6 +24,24 @@ function _drawGameScreen() {gameScreen.classList.remove("hide"); gameScreen.clas
 const gameScreen = document.getElementById("gameScreen");
 const score = document.getElementById("score");
 const patience = document.getElementById("patience");
+function sound(src, volume) {
+    this.sound = document.createElement("audio");
+    this.sound.src = src;
+    this.sound.volume = volume;
+    this.sound.setAttribute("preload", "auto");
+    this.sound.setAttribute("controls", "none");
+    this.sound.style.display = "none";
+    document.body.appendChild(this.sound);
+    this.play = function(){
+      this.sound.play();
+      console.log(`${this.sound.src} is playing`);
+    }
+    this.stop = function(){
+      this.sound.pause();
+      console.log(`${this.sound.src} has stopped`);
+    }
+  }
+
 //Tables--------------------------------------------------------------------------------------------------------------------------------------------------------------------
 /*Dom*/
 const table0Btn = document.getElementById("table0");

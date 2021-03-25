@@ -5,10 +5,13 @@ class Game {
         this.queue = queue; // Array of waiting customers
         this.queueHtmlArr = queueHtmlArr;
         this.queueInterval = 0;
+        this.backgroundSound = new sound ("sound/jazzyfrenchy.mp3", 0.2);
+        this.coinSound = new sound ("sound/score.ogg", 1);
     }
 
     start(){
         console.log("The game has started");
+        this.backgroundSound.play();
         _drawGame();
         this._gameCountdown();
         this._buildQueue();
@@ -23,6 +26,7 @@ class Game {
 
     startFromInstructions(){
         console.log("the game has started");
+        this.backgroundSound.play();
         _hideHowToScreen();
         _drawGame();
         this._gameCountdown();
@@ -56,6 +60,26 @@ class Game {
             }, 1500);    
     }
 
+    _assignCustomerToTable(i) {
+        this.terrace[i]._changeTableStatus();
+        switch (this.terrace[i].status){
+            case 'free':
+                freeTable.bind(Game);    
+                _freeTable(this.terrace[i], [i]);
+                this.coinSound.play();
+                break;
+            case 'countdown':
+                countdownTable.bind(Game);
+                _countdownTable(this.terrace[i], [i]);
+                break;
+            case 'collect':
+                collectTable.bind(Game);
+                _collectTable(this.terrace[i], [i]);
+
+                break;
+        }
+    }
+
     _clearQueue() {
         clearInterval(this.queueInterval);
     }
@@ -75,26 +99,11 @@ class Game {
         setTimeout(()=>this._checkWin(), 60000);
     }
 
-    _assignCustomerToTable(i) {
-        this.terrace[i]._changeTableStatus();
-        switch (this.terrace[i].status){
-            case 'free':
-                freeTable.bind(Game);    
-                _freeTable(this.terrace[i], [i]);
-                break;
-            case 'countdown':
-                countdownTable.bind(Game);
-                _countdownTable(this.terrace[i], [i]);
-                break;
-            case 'collect':
-                collectTable.bind(Game);
-                _collectTable(this.terrace[i], [i]);
-                break;
-        }
-    }
+    
     _gameOver(x) {
         _drawGameOver(x);
         this._clearQueue();
+        this.backgroundSound.stop();
     }
 
     _reset() {
@@ -104,5 +113,7 @@ class Game {
         queue = [];
         queueHtmlArr.forEach((spot)=> spot.innerHTML="");
         this.terraceHtml.innerHTML = terraceHtmlCopy;  
+        this.backgroundSound.play();
+ 
     }
 }
