@@ -195,7 +195,7 @@ let queueInterval;
 
 // GAME OVER SCREENS
 const winSound = new sound ("sound/win.mp3", 0.8);
-const loseSound = new sound ("sound/lose.mp3", 0.8);
+const loseSound = new sound ("sound/lose.mp3", 0.5);
 
 function _drawGameOver(result) {
     console.log("game over");

@@ -6,14 +6,15 @@
 #howToScreen p {
     color: white;
     padding: 0 5% 5%;
-    font-size: 1.5rem;
+    font-size: 1rem;
+    line-height: 1;
     text-align: left;
 }
 
 #howToScreen ul{
     color: white;
     padding: 0 5% 5.5%;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     margin-left: 40px;
     line-height: 1.9;
 }

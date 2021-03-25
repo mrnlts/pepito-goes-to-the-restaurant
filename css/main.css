@@ -1,6 +1,5 @@
 *{
     text-align: center;
-    
     font-size: 2rem;
     box-sizing: border-box;
 }
@@ -20,7 +19,8 @@ body {
 }
 
 .green {
-    background: url(/wood/images.png);
+    background: url(https://cdn.pixabay.com/photo/2017/02/07/09/02/wood-2045380__340.jpg);
+    background-size: 15rem;
 }
 
 .yellow {
@@ -29,6 +29,10 @@ body {
 
 .red {
     background-color: lightcoral;
+    background-image: url(/img/Alert.png);
+    background-repeat: no-repeat;
+    background-size: 1.7rem;
+    background-position-x: 6rem;
 }
 
 #splashScreen,
