@@ -20,7 +20,7 @@ body {
 }
 
 .green {
-    background-image: url(img/images.jpeg);
+    background-image: url("img/images.jpeg");
 }
 
 .yellow {
