@@ -20,9 +20,6 @@ function _drawGame() {
     _drawGameScreen();
 }
 function _drawGameScreen() {gameScreen.classList.remove("hide"); gameScreen.classList.add("show");}
-const gameScreen = document.getElementById("gameScreen");
-const score = document.getElementById("score");
-const patience = document.getElementById("patience");
 function sound(src, volume) {
     this.sound = document.createElement("audio");
     this.sound.src = src;
@@ -37,8 +34,13 @@ function sound(src, volume) {
     this.stop = function(){
       this.sound.pause();
     }
-  }
-
+}
+const gameScreen = document.getElementById("gameScreen");
+const score = document.getElementById("score");
+const patience = document.getElementById("patience");
+const backgroundSound = new sound ("sound/jazzyfrenchy.mp3", 0.2);
+const coinSound = new sound ("sound/coins.mp3", 1);
+const clickSound = new sound ("sound/metalClick.mp3", 1);
 //Tables--------------------------------------------------------------------------------------------------------------------------------------------------------------------
 /*Dom*/
 const table0Btn = document.getElementById("table0");
@@ -192,15 +194,22 @@ let queueInterval;
 
 
 // GAME OVER SCREENS
+const winSound = new sound ("sound/win.mp3", 0.8);
+const loseSound = new sound ("sound/lose.mp3", 0.8);
+
 function _drawGameOver(result) {
     console.log("game over");
     gameScreen.classList.remove("show"); gameScreen.classList.add("hide");
     if (result === "win") {
         winScreen.classList.remove("hide"); winScreen.classList.add("show"); patience.innerHTML === "-1"; tablesHtmlArr.forEach((spot) => spot.innerHTML = "");
         finalScoreWin.innerHTML = `Final score: ${score.innerHTML}`;
+        backgroundSound.stop();
+        winSound.play();
     } else if (result === "lose") {
         loseScreen.classList.remove("hide"); loseScreen.classList.add("show"); 
         finalScoreLose.innerHTML = `Final score: ${score.innerHTML}`;
+        backgroundSound.stop();
+        loseSound.play();
     }
 }
 function _hideWinScreen() {

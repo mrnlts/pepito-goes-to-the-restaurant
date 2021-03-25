@@ -4,12 +4,11 @@ class Game {
         this.terraceHtml = terraceHtml;
         this.queue = queue; 
         this.queueHtmlArr = queueHtmlArr;
-        this.backgroundSound = new sound ("sound/jazzyfrenchy.mp3", 0.2);
-        this.coinSound = new sound ("sound/coins.mp3", 1);
     }
 
     start(){
-        this.backgroundSound.play();
+        clickSound.play();
+        setTimeout(()=>backgroundSound.play(), 500);
         _drawGame();
         this._gameCountdown();
         this._buildQueue();
@@ -17,12 +16,14 @@ class Game {
     }
 
     howToPlay(){
+        clickSound.play();
         _hideSplashScreen();
         _showHowToScreen();
     }
 
     startFromInstructions(){
-        this.backgroundSound.play();
+        clickSound.play();
+        setTimeout(()=>backgroundSound.play(), 500);
         _hideHowToScreen();
         _drawGame();
         this._gameCountdown();
@@ -31,7 +32,7 @@ class Game {
     }
 
     _gameCountdown() {
-        _countdown(60, timer);
+        _countdown(10, timer);
     }
 
     _buildQueue() {
@@ -62,7 +63,7 @@ class Game {
             case 'free':
                 freeTable.bind(Game);    
                 _freeTable(this.terrace[i], [i]);
-                this.coinSound.play();
+                coinSound.play();
                 break;
             case 'countdown':
                 countdownTable.bind(Game);
@@ -92,16 +93,16 @@ class Game {
         } else if (patience.innerHTML === "1") {
             this._gameOver("lose");
         }
-        setTimeout(()=>this._checkWin(), 60000);
+        setTimeout(()=>this._checkWin(), 10000);
     }
 
     _gameOver(x) {
         _drawGameOver(x);
         this._clearQueue();
-        this.backgroundSound.stop();
     }
 
     _reset() {
+        clickSound.play();
         console.log("this is a reset");
         queueHtmlArr.forEach((spot)=> spot.innerHTML="");
         this.terraceHtml.innerHTML = terraceHtmlCopy;  
