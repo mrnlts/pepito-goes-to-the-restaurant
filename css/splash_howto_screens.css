@@ -1,0 +1,19 @@
+#howToScreen > h1 {
+    font-size: 80px;
+    padding: 5%;
+}
+
+#howToScreen p {
+    color: white;
+    padding: 0 5% 5%;
+    font-size: 1.5rem;
+    text-align: left;
+}
+
+#howToScreen ul{
+    color: white;
+    padding: 0 5% 5.5%;
+    font-size: 1.5rem;
+    margin-left: 40px;
+    line-height: 1.9;
+}

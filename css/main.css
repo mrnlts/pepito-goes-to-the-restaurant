@@ -1,0 +1,58 @@
+*{
+    text-align: center;
+    
+    font-size: 2rem;
+    box-sizing: border-box;
+}
+
+body {
+    margin: auto;
+    width: 916px;
+    font-family:monospace;
+}
+
+.show {
+    display: block;
+}
+
+.hide{
+    display: none;
+}
+
+.green {
+    background-image: url(/img/images.jpeg);
+}
+
+.yellow {
+    background-color: yellow;
+}
+
+.red {
+    background-color: lightcoral;
+}
+
+#splashScreen,
+#howToScreen, 
+#winScreen, 
+#loseScreen {
+    color: yellow;
+    background-color: rgb(60, 18, 36);
+}
+
+#splashScreen > img,
+#winScreen > img,
+#loseScreen > img {
+    margin-top: 15%;
+    width: 100%;
+}
+
+#splashScreen > button,
+#howToScreen > button,
+#winScreen > button,
+#loseScreen > button {    
+    padding: 4.65% 0;
+    width: 30%;
+    margin: 10% auto 7.5%;
+    color: white;
+    background-color: rgb(100, 70, 83);
+}

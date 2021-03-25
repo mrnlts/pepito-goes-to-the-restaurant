@@ -1,6 +1,7 @@
 class Game {
     constructor() {
         this.terrace = terrace; // Array of tables
+        this.terraceHtml = terraceHtml;
         this.queue = queue; // Array of waiting customers
         this.queueHtmlArr = queueHtmlArr;
         this.queueInterval = 0;
@@ -102,5 +103,6 @@ class Game {
         patience.innerHTML = 9;
         queue = [];
         queueHtmlArr.forEach((spot)=> spot.innerHTML="");
+        this.terraceHtml.innerHTML = terraceHtmlCopy;  
     }
 }

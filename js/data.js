@@ -38,6 +38,9 @@ const table2 = new Table(table2Btn);
 const table3 = new Table(table3Btn);
 /*Array*/
 const terrace = [table0, table1, table2, table3];
+const terraceHtml = document.getElementById("terrace");
+const terraceHtmlCopy = '<div><span class="t0">Table 0</span><button class="green" id="table0"></button></div><div><span class="t1">Table 1</span><button class="green" id="table1"></button></div><div><span class="t2">Table 2</span><button class="green" id="table2"></button></div><div><span class="t3">Table 3</span><button class="green" id="table3"></button></div>';
+
 /*Functions*/
 function _freeTable(table, i) {
     table.btn.disabled = false; 

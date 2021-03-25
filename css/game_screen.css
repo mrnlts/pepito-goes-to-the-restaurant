@@ -1,0 +1,38 @@
+#gameScreen {
+    background-color: rgb(100, 70, 83);
+    color: white;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+#gameScreen > h1 {
+    font-size: 3rem;
+    background-color: rgb(100, 70, 83);
+    padding: 5% 0 0;
+}
+
+#timer {
+    font-size: 30px;
+    margin: 0 auto 0;
+    padding: 10px;
+    width: fit-content;
+    text-align: center;
+    border: 2px solid white;
+    border-radius: 25%;
+    background-color: white;
+    color: black;
+}
+
+#scores {
+    position: absolute;
+    width: 916px;
+    border: 1px solid white;
+    font-size: 30px;
+    line-height: 1.6;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 1% 0;
+    background-color: lightgray;
+    color: black;
+}

@@ -1,0 +1,17 @@
+#terrace {
+    padding: 10%;
+    display: flex;
+    font-size: 2rem;
+    padding: 5% 0 5%;
+}
+
+#terrace > div > button {
+    width: 8rem;
+    height: 8rem;
+    padding: 0;
+}
+
+#terrace > div > button > img {
+    width: 90%;
+    height: 90%;
+}

@@ -6,7 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Restaurant Madness</title>
     <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/splash_howto_screens.css">
+    <link rel="stylesheet" href="css/game_screen.css">
+    <link rel="stylesheet" href="css/queue.css">
+    <link rel="stylesheet" href="css/tables.css">
 </head>
 <body>
     <div>
@@ -23,7 +27,7 @@
             <ul style="list-style: circle;">
                 <li style="text-align: left;">An <span style="text-decoration: underline;">empty table</span> will look like a <span style="background-image: url(/img/images.jpeg); color: black;">wooden table</span>, </li>
                 <li style="text-align: left;">an <span style="text-decoration: underline;">occupied table</span> with costumers eating will appear <span style="background-color: yellow; color: black;">yellow</span>, and</li>
-                <li style="text-align: left;">a table with costumers that are <span style="text-decoration: underline;">finished eating</span> will look <span style="background-color: lightcoral; color: black;">red</span>.</li>
+                <li style="text-align: left;">a table with costumers that are <span style="text-decoration: underline;">finished eating</span> will look <span style="background-color: rgb(240, 112, 112); color: black;">red</span>.</li>
             </ul>
             
             </br><p>Costumers will leave the table free once you collect their bill by clicking on the table. 
@@ -45,26 +49,41 @@
                 <div id="spot6"></div>
                 <div id="spot7"></div>
             </div>
+            
+            <div id="timer">01:00</div>
 
             <div id="terrace">
-                <span class="t0">Table 0</span>
-                <button class="green" style="font-size: large" id="table0"></button>
-                <span class="t1">Table 1</span>
-                <button class="green" style="font-size: large" id="table1"></button>
-                </br><span class="t2">Table 2</span>
-                <button class="green" style="font-size: large" id="table2"></button>
-                <span class="t3">Table 3</span>
-                <button class="green" style="font-size: large" id="table3"></button>
+                <div>
+                    <span class="t0">Table 0</span>
+                    <button class="green" id="table0"></button>
+                </div>
+                
+                <div>
+                    <span class="t1">Table 1</span>
+                    <button class="green" id="table1"></button>
+                </div>
+          
+                <div>
+                    <span class="t2">Table 2</span>
+                    <button class="green" id="table2"></button>
+                </div>
+                
+                <div>
+                    <span class="t3">Table 3</span>
+                    <button class="green" id="table3"></button>
+                </div>
+                
             </div>    
 
-            <div id="scores">
-                <h2 id="scoreCount">Score:</h2>
-                <p id ="score">0</p>
-
-                <h2 id="patienceCount">Patience counter:</h2>
-                <p id="patience">4</p>
-                
-                <div id="timer">01:00</div>
+            <div id="scores">              
+                <div>
+                    <h2 id="scoreCount">Score:</h2>
+                    <p id ="score">0</p>
+                </div>
+                <div>
+                    <h2 id="patienceCount">Patience counter:</h2>
+                    <p id="patience">4</p>
+                </div>
             </div>
         </div>
 
