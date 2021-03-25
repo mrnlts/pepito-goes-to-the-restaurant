@@ -72,7 +72,6 @@ class Game {
             case 'collect':
                 collectTable.bind(Game);
                 _collectTable(this.terrace[i], [i]);
-
                 break;
         }
     }

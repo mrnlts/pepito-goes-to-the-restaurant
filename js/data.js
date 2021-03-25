@@ -41,6 +41,7 @@ const patience = document.getElementById("patience");
 const backgroundSound = new sound ("sound/jazzyfrenchy.mp3", 0.2);
 const coinSound = new sound ("sound/coins.mp3", 1);
 const clickSound = new sound ("sound/metalClick.mp3", 1);
+const heySound = new sound ("sound/hey.mp3", 0.3);
 //Tables--------------------------------------------------------------------------------------------------------------------------------------------------------------------
 /*Dom*/
 const table0Btn = document.getElementById("table0");
@@ -195,7 +196,7 @@ let queueInterval;
 
 // GAME OVER SCREENS
 const winSound = new sound ("sound/win.mp3", 0.8);
-const loseSound = new sound ("sound/lose.mp3", 0.5);
+const loseSound = new sound ("sound/lose.mp3", 0.2);
 
 function _drawGameOver(result) {
     console.log("game over");
