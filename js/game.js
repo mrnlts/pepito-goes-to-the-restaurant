@@ -1,16 +1,14 @@
 class Game {
     constructor() {
-        this.terrace = terrace; // Array of tables
+        this.terrace = terrace;
         this.terraceHtml = terraceHtml;
-        this.queue = queue; // Array of waiting customers
+        this.queue = queue; 
         this.queueHtmlArr = queueHtmlArr;
-        this.queueInterval = 0;
         this.backgroundSound = new sound ("sound/jazzyfrenchy.mp3", 0.2);
         this.coinSound = new sound ("sound/coins.mp3", 1);
     }
 
     start(){
-        console.log("The game has started");
         this.backgroundSound.play();
         _drawGame();
         this._gameCountdown();
@@ -19,13 +17,11 @@ class Game {
     }
 
     howToPlay(){
-        console.log("these are the instructions");
         _hideSplashScreen();
         _showHowToScreen();
     }
 
     startFromInstructions(){
-        console.log("the game has started");
         this.backgroundSound.play();
         _hideHowToScreen();
         _drawGame();
@@ -41,7 +37,7 @@ class Game {
     _buildQueue() {
         let spotsCounter = 0;
         let customsCounter = 0;
-        this.queueInterval = setInterval(()=> {  
+        queueInterval = setInterval(()=> {  
             this._checkProgress();
             if (customsCounter <= 3) {
                 const currentSpot = this.queueHtmlArr[spotsCounter];
@@ -81,7 +77,7 @@ class Game {
     }
 
     _clearQueue() {
-        clearInterval(this.queueInterval);
+        clearInterval(queueInterval);
     }
 
     _checkWin() {
@@ -99,7 +95,6 @@ class Game {
         setTimeout(()=>this._checkWin(), 60000);
     }
 
-    
     _gameOver(x) {
         _drawGameOver(x);
         this._clearQueue();
@@ -108,12 +103,10 @@ class Game {
 
     _reset() {
         console.log("this is a reset");
-        _drawSplashScreen();
         queueHtmlArr.forEach((spot)=> spot.innerHTML="");
         this.terraceHtml.innerHTML = terraceHtmlCopy;  
-        patience.innerHTML = 9;
+        patience.innerHTML = 10;
         score.innerHTML = 0;
         queue = [];
-        this.backgroundSound.play();
     }
 }

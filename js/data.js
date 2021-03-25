@@ -5,7 +5,6 @@ const startFromHowToBtn = document.getElementById("startFromHowToBtn");
 const title = document.getElementById("title");
 const splashScreen = document.getElementById("splashScreen");
 function _hideSplashScreen() {splashScreen.classList.remove("show"); splashScreen.classList.add("hide");}
-function _drawSplashScreen() {splashScreen.classList.remove("hide"); splashScreen.classList.add("show");}
 //--------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 //HOW-TO SCREEN
@@ -187,6 +186,7 @@ function _countdown(start, target) {
     }
     subsInt = setInterval(() => substract(), 1000);
 }
+let queueInterval;
 
 //--------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -199,7 +199,7 @@ function _drawGameOver(result) {
         winScreen.classList.remove("hide"); winScreen.classList.add("show"); patience.innerHTML === "-1"; tablesHtmlArr.forEach((spot) => spot.innerHTML = "");
         finalScoreWin.innerHTML = `Final score: ${score.innerHTML}`;
     } else if (result === "lose") {
-        loseScreen.classList.remove("hide"); loseScreen.classList.add("show"); clearInterval(subsInt);
+        loseScreen.classList.remove("hide"); loseScreen.classList.add("show"); 
         finalScoreLose.innerHTML = `Final score: ${score.innerHTML}`;
     }
 }
