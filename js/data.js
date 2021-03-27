@@ -114,14 +114,41 @@ const spotsHtmlQueue = document.getElementById("queue");
 /*Array*/
 let queue = [];
 function _advanceQueue() {
-    spot0Html.innerHTML = spot1Html.innerHTML;
-    spot1Html.innerHTML = spot2Html.innerHTML;
-    spot2Html.innerHTML = spot3Html.innerHTML;
-    spot3Html.innerHTML = spot4Html.innerHTML;
-    spot4Html.innerHTML = spot5Html.innerHTML;
-    spot5Html.innerHTML = spot6Html.innerHTML;
-    spot6Html.innerHTML = spot7Html.innerHTML;
-    spot7Html.innerHTML = '';
+    spot0Html.innerHTML="";
+    if (spot1Html.innerHTML) {
+        spot0Html.innerHTML = spot1Html.innerHTML;
+        spot1Html.innerHTML = "";
+    }
+    spot1Html.innerHTML="";
+    if (spot2Html.innerHTML) {
+        spot1Html.innerHTML = spot2Html.innerHTML;
+        spot2Html.innerHTML = "";
+    }
+    spot2Html.innerHTML="";
+    if (spot3Html.innerHTML) {
+        spot2Html.innerHTML = spot3Html.innerHTML;
+        spot3Html.innerHTML = "";
+    }
+    spot3Html.innerHTML="";
+    if (spot4Html.innerHTML) {
+        spot3Html.innerHTML = spot4Html.innerHTML;
+        spot4Html.innerHTML = "";
+    }
+    spot4Html.innerHTML="";
+    if (spot5Html.innerHTML) {
+        spot4Html.innerHTML = spot5Html.innerHTML;
+        spot5Html.innerHTML = "";
+    }
+    spot5Html.innerHTML="";
+    if (spot6Html.innerHTML) {
+        spot5Html.innerHTML = spot6Html.innerHTML;
+        spot6Html.innerHTML = "";
+    }
+    spot6Html.innerHTML="";
+    if (spot7Html.innerHTML) {
+        spot6Html.innerHTML = spot7Html.innerHTML;
+        spot7Html.innerHTML = "";
+    }    
 }
 // function _advanceQueue() {
 //     let counter= 0;
