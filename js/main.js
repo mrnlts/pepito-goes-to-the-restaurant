@@ -33,6 +33,8 @@ document.addEventListener('DOMContentLoaded', () => {
         _hideWinScreen();
         game._reset();
         game.start();
+        game._buildQueue();
+        setTimeout (()=> {game._gameOver("lose");}, 10000);
     });
     playAgainLoseBtn.addEventListener("click", () => {
         _hideLoseScreen();

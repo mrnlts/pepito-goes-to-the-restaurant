@@ -32,7 +32,7 @@ class Game {
     }
 
     _gameCountdown() {
-        _countdown(60, timer);
+        _countdown(40, timer);
     }
 
     _buildQueue() {
@@ -92,7 +92,7 @@ class Game {
         } else if (patience.innerHTML === "1") {
             this._gameOver("lose");
         }
-        setTimeout(()=>this._checkWin(), 60000);
+        setTimeout(()=>this._checkWin(), 40000);
     }
 
     _gameOver(x) {
